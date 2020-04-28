@@ -3,7 +3,7 @@ import pymongo
 import json
 class Services:
     def __init__(self):
-        self.client = pymongo.MongoClient("mongodb+srv://Yoav:Yoav1993@cluster0-pzmee.mongodb.net/test?retryWrites=true&w=majority")
+        self.client = pymongo.MongoClient("mongodb+srv://Yoav:Yoav1993@cluster0-pzmee.mongodb.net/test?retryWrites=true&w=majority",ssl=True)
         self.db = self.client.users
     def insert_new_user(self, jsonuser):
         # client = pymongo.MongoClient(
