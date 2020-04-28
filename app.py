@@ -12,7 +12,9 @@ def hello_world():
 def new_user():
     return  services.insert_new_user(request.json)
     # return jsonify({'my data ':services.insert_new_user(request.json)})
-
+@app.route('/api/admin/users', methods=['GET'])
+def ecport_user():
+    return  jsonify({'users':services.export_all_users()})
 
 if __name__ == '__main__':
     app.run()
