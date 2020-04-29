@@ -7,7 +7,7 @@ from flask import abort
 class Services:
     def __init__(self):
         self.client = pymongo.MongoClient(
-            "mongodb+srv://Yoav:Yoav1993@cluster0-pzmee.mongodb.net/test?retryWrites=true&w=majority", connect=False)
+            "mongodb+srv://Yoav:Rest2020@cluster0-pzmee.mongodb.net/test?retryWrites=true&w=majority", connect=False)
         self.db = self.client.users
 
     def insert_new_user(self, jsonuser):
