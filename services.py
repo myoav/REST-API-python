@@ -23,12 +23,12 @@ class Services:
         create_time = datetime.datetime.now()
         self.db.profiles.insert_one(
             {
-                _id: jsonuser['ID'],
-                Nickname: jsonuser['Nickname'],
-                User name: jsonuser['User name'],
-                password: jsonuser['Password'],
-                Create time: create_time,
-                Status: jsonuser['Status']
+                "_id": jsonuser['ID'],
+                "Nickname": jsonuser['Nickname'],
+                "User name": jsonuser['User name'],
+                "password": jsonuser['Password'],
+                "Create time": create_time,
+                "Status": jsonuser['Status']
             }
         )
 #       Add Timestamp to json
