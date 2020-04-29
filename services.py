@@ -11,14 +11,16 @@ class Services:
         self.db = self.client.users
 
     def insert_new_user(self, jsonuser):
-        # check the argument
+#       check the argument
         if len(jsonuser['ID']) > 32 or len(jsonuser['Nickname']) > 11 or len(jsonuser['User name']) > 50 or len(
                 jsonuser['Password']) > 200 or jsonuser['Status'] > 255:
             abort(400)
-        create_time = datetime.datetime.now()
-        x = list(self.db.profiles.find({'_id': jsonuser['ID']}))
-        if x:
+        key_exist = list(self.db.profiles.find({'_id': jsonuser['ID']}))
+        if key_exist:
             abort(400)
+       
+#       insert user   
+        create_time = datetime.datetime.now()
         self.db.profiles.insert_one(
             {
                 '_id': jsonuser['ID'],
@@ -29,7 +31,10 @@ class Services:
                 "Status": jsonuser['Status']
             }
         )
+#       Add Timestamp to json
         jsonuser['create_time'] = create_time
+
+#       Delte Password from json         
         if 'Password' in jsonuser:
             del jsonuser['Password']
         return jsonuser
