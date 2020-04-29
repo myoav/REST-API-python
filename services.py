@@ -12,8 +12,8 @@ class Services:
 
     def insert_new_user(self, jsonuser):
         # check the argument
-        if len(jsonuser['ID']) > 32 | len(jsonuser['Nickname']) > 11 | len(jsonuser['Username']) > 50 | len(
-                jsonuser['Password']) > 200 | jsonuser['Status'] > 255:
+        if len(jsonuser['ID']) > 32 or len(jsonuser['Nickname']) > 11 or len(jsonuser['Username']) > 50 or len(
+                jsonuser['Password']) > 200 or jsonuser['Status'] > 255:
             abort(400)
         create_time = datetime.datetime.now()
         x = list(self.db.profiles.find({'_id': jsonuser['ID']}))
