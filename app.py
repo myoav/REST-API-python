@@ -16,7 +16,7 @@ def new_user():
 
 
 @app.route('/api/admin/users', methods=['GET'])
-def ecport_user():
+def export_user():
     return jsonify({'users': services.export_all_users()})
 
 
