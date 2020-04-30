@@ -1,8 +1,8 @@
 # REST-API-python
 My first REST API !
 This Backend part should support:
-- Insertion of a User to DB
-   - USER { 
+ - Insertion of a User to DB
+    - USER { 
       *Key* ID,
             Nickname,
             Username,
@@ -10,6 +10,7 @@ This Backend part should support:
             Create_time,
             Status.
            }
--Return all users in a database
+           
+- Return all users in a database
 
 Implemented with Flask and json (see requirements.txt)
